@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_more_wallpaper/screens/bottom_nav_screens/home_screen.dart';
+import 'package:one_more_wallpaper/screens/bottom_nav_screens/topics_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _MainScreenState extends State<MainScreen> {
    int _selectedIndex=0;
 final List<Widget> _pages=[
   HomeScreen(),
-  const Text("Topics"),
+  TopicsScreen(),
   const Text("Favorite")
 ];
 

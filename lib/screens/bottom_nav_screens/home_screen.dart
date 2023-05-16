@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:one_more_wallpaper/screens/wallpapers/Aesthetic_wallpapers.dart';
 import 'package:one_more_wallpaper/screens/wallpapers/abstract_wallpaper.dart';
+import 'package:one_more_wallpaper/screens/wallpapers/cold_play_wallpaper.dart';
+import 'package:one_more_wallpaper/screens/wallpapers/nature_wallpapers.dart';
+import 'package:one_more_wallpaper/screens/wallpapers/night_wallpapers.dart';
 import 'package:one_more_wallpaper/screens/wallpapers/top_wallpapers.dart';
 import 'package:one_more_wallpaper/utils/custom_arrow_button.dart';
 import 'package:one_more_wallpaper/widgets/custom_app_bar.dart';
 import 'package:one_more_wallpaper/utils/custom_carousel_slider.dart';
-import 'package:one_more_wallpaper/widgets/cutstom_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,6 +44,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     CustomArrowButton(text: 'Aesthetic'),
                     SizedBox(height: 25,),
                     AestheticWallpapers(),
+                    SizedBox(height: 25,),
+                    CustomArrowButton(text: 'Cold Play'),
+                    SizedBox(height: 25,),
+                    ColdPlayWallpapers(),
+                    SizedBox(height: 25,),
+                    CustomArrowButton(text: 'Nature'),
+                    SizedBox(height: 25,),
+                    NatureWallpapers(),
+                    SizedBox(height: 25,),
+                    CustomArrowButton(text: 'Night'),
+                    SizedBox(height: 25,),
+                    NightWallpapers(),
                     SizedBox(height: 10,),
 
                   ],

@@ -5,14 +5,14 @@ import 'package:one_more_wallpaper/utils/routes.dart';
 import 'package:one_more_wallpaper/widgets/build_image.dart';
 import 'package:one_more_wallpaper/widgets/cutstom_text.dart';
 
-class AestheticWallpapers extends StatelessWidget {
-  const AestheticWallpapers({Key? key}) : super(key: key);
+class NatureWallpapers extends StatelessWidget {
+  const NatureWallpapers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
 
-        stream: FirebaseFirestore.instance.collection('Aesthetic_cat').snapshots(),
+        stream: FirebaseFirestore.instance.collection('Nature').snapshots(),
         builder: (context,snapshot){
           if(snapshot.connectionState==ConnectionState.waiting){
             return const Center(child: CircularProgressIndicator(),);
@@ -31,7 +31,7 @@ class AestheticWallpapers extends StatelessWidget {
                   crossAxisSpacing: 5.0,
                   mainAxisSpacing: 5.0,
                   mainAxisExtent: 220),
-              itemCount:data.length%3==0?data.length:6,
+              itemCount:data.length%3==0?data.length:12,
               itemBuilder:  (BuildContext context, int index){
                 final image=data[index]['image_url'];
                 return InkWell(
