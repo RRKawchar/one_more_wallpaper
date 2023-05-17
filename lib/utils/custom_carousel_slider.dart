@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:one_more_wallpaper/screens/full_screen/full_screen.dart';
 import 'package:one_more_wallpaper/utils/routes.dart';
+import 'package:one_more_wallpaper/widgets/build_image.dart';
 import 'package:one_more_wallpaper/widgets/cutstom_text.dart';
 
 class CustomCarouselSlider extends StatelessWidget {
@@ -35,6 +36,7 @@ class CustomCarouselSlider extends StatelessWidget {
               items: data.map((doc) {
                 final name = doc['name'];
                 final imageUrl = doc['image'];
+                final imageId = doc['image_id'];
                 return Builder(builder: (BuildContext context) {
                   return Padding(
                     padding: const EdgeInsets.all(5.0),
@@ -46,10 +48,10 @@ class CustomCarouselSlider extends StatelessWidget {
                           SizedBox(
                             height: 200,
                             width: MediaQuery.of(context).size.width,
-                            child: Image.network(
-                              imageUrl,
-                              fit: BoxFit.cover,
-                            ),
+                            child: BuildImage(
+                              size: MediaQuery.of(context).size,imgUrl: imageUrl
+                              ,
+                            )
                           ),
                           Positioned.fill(
                             bottom: -1,
@@ -86,7 +88,7 @@ class CustomCarouselSlider extends StatelessWidget {
                             right: 10,
                             child: InkWell(
                               onTap: (){
-                                nextPage(context: context,page: FullScreen(imageUrl: imageUrl));
+                                nextPage(context: context,page: FullScreen(imageUrl: imageUrl, imageId:imageId ,));
                               },
                               child: Container(
                                 height: 30,

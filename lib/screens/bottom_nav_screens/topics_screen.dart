@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:one_more_wallpaper/model/data_model.dart';
 import 'package:one_more_wallpaper/screens/categories/view_category.dart';
 import 'package:one_more_wallpaper/utils/routes.dart';
+import 'package:one_more_wallpaper/widgets/build_image.dart';
 import 'package:one_more_wallpaper/widgets/cutstom_text.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -37,11 +38,9 @@ class TopicsScreen extends StatelessWidget {
                            decoration: BoxDecoration(
                                color: Colors.blueGrey,
                              borderRadius: BorderRadius.circular(20),
-                             image: DecorationImage(
-                               image: NetworkImage(topicsList[index]['image_url']),
-                               fit: BoxFit.cover
-                             )
+
                            ),
+                           child: BuildImage(size: MediaQuery.of(context).size,imgUrl: topicsList[index]['image_url'],),
                          ),
                        ),
                        Positioned(

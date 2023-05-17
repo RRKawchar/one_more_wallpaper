@@ -6,7 +6,6 @@ import 'package:one_more_wallpaper/screens/wallpapers/nature_wallpapers.dart';
 import 'package:one_more_wallpaper/screens/wallpapers/night_wallpapers.dart';
 import 'package:one_more_wallpaper/screens/wallpapers/top_wallpapers.dart';
 import 'package:one_more_wallpaper/utils/custom_arrow_button.dart';
-import 'package:one_more_wallpaper/widgets/custom_app_bar.dart';
 import 'package:one_more_wallpaper/utils/custom_carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -24,9 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 20,),
-              CustomAppBar(text1: "Wall", text2: "Papers"),
-              const SizedBox(height: 20,),
+              Image.asset("assets/image/logo.png",width: 200,),
+              // CustomAppBar(text1: "Wall", text2: "Papers"),
               const CustomCarouselSlider(),
               const SizedBox(height: 20,),
               Padding(

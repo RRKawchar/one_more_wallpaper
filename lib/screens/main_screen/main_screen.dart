@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_more_wallpaper/screens/bottom_nav_screens/favorite_screen.dart';
 import 'package:one_more_wallpaper/screens/bottom_nav_screens/home_screen.dart';
 import 'package:one_more_wallpaper/screens/bottom_nav_screens/topics_screen.dart';
 
@@ -14,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
 final List<Widget> _pages=[
   HomeScreen(),
   TopicsScreen(),
-  const Text("Favorite")
+  FavoriteScreen(),
 ];
 
    void _onItemTapped(value){

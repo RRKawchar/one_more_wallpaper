@@ -24,50 +24,54 @@ class ViewCategory extends StatelessWidget {
         centerTitle: true,
       ),
       body: SafeArea(
-        child: StreamBuilder<QuerySnapshot>(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8,right: 10,left: 10),
+          child: StreamBuilder<QuerySnapshot>(
 
-            stream: FirebaseFirestore.instance.collection(category).snapshots(),
-            builder: (context,snapshot){
-              if(snapshot.connectionState==ConnectionState.waiting){
-                return const Center(child: CircularProgressIndicator(),);
+              stream: FirebaseFirestore.instance.collection(category).snapshots(),
+              builder: (context,snapshot){
+                if(snapshot.connectionState==ConnectionState.waiting){
+                  return const Center(child: CircularProgressIndicator(),);
+                }
+                else if(!snapshot.hasData){
+                  return Center(child: CustomText(text: "No Images Founded",),);
+                }
+
+                List<DocumentSnapshot> data=snapshot.data!.docs;
+                return GridView.builder(
+                  padding: const EdgeInsets.only(top: 10),
+                    shrinkWrap: true,
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
+                        mainAxisExtent: 220),
+                    itemCount:data.length,
+                    itemBuilder:  (BuildContext context, int index){
+                      final image=data[index]['image_url'];
+                      final imageId=data[index]['image_id'];
+                      return InkWell(
+                        onTap: (){
+                          nextPage(context: context,page: FullScreen(imageUrl: image,imageId: imageId,));
+                        },
+                        child: Container(
+
+                            decoration: BoxDecoration(
+                                color: Colors.indigo,
+                                borderRadius: BorderRadius.circular(20)
+                            ),
+                            child: BuildImage(
+                              size: MediaQuery.of(context).size,
+                              imgUrl: image,
+                            )
+
+                        ),
+                      );
+                    }
+                );
               }
-              else if(!snapshot.hasData){
-                return Center(child: CustomText(text: "No Images Founded",),);
-              }
-
-              List<DocumentSnapshot> data=snapshot.data!.docs;
-              return GridView.builder(
-                padding: const EdgeInsets.only(top: 10),
-                  shrinkWrap: true,
-                  gridDelegate:
-                  const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 5.0,
-                      mainAxisSpacing: 5.0,
-                      mainAxisExtent: 220),
-                  itemCount:data.length,
-                  itemBuilder:  (BuildContext context, int index){
-                    final image=data[index]['image_url'];
-                    return InkWell(
-                      onTap: (){
-                        nextPage(context: context,page: FullScreen(imageUrl: image,));
-                      },
-                      child: Container(
-
-                          decoration: BoxDecoration(
-                              color: Colors.indigo,
-                              borderRadius: BorderRadius.circular(20)
-                          ),
-                          child: BuildImage(
-                            size: MediaQuery.of(context).size,
-                            imgUrl: image,
-                          )
-
-                      ),
-                    );
-                  }
-              );
-            }
+          ),
         ),
       ),
     );

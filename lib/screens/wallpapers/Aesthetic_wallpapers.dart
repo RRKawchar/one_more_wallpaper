@@ -34,9 +34,10 @@ class AestheticWallpapers extends StatelessWidget {
               itemCount:data.length%3==0?data.length:6,
               itemBuilder:  (BuildContext context, int index){
                 final image=data[index]['image_url'];
+                final imageId=data[index]['image_id'];
                 return InkWell(
                   onTap: (){
-                    nextPage(context: context,page: FullScreen(imageUrl: image,));
+                    nextPage(context: context,page: FullScreen(imageUrl: image,imageId: imageId,));
                   },
                   child: Container(
 

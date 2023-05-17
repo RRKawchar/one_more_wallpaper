@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zufaa.one_more_wallpaper">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="one_more_wallpaper"
+        android:label="Zing Walls"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
