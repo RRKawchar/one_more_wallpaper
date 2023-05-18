@@ -15,7 +15,7 @@ class NatureWallpapers extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection('Nature').snapshots(),
         builder: (context,snapshot){
           if(snapshot.connectionState==ConnectionState.waiting){
-            return const Center(child: CircularProgressIndicator(),);
+            return Center(child: Container(),);
           }
           else if(!snapshot.hasData){
             return Center(child: CustomText(text: "No Images Founded",),);

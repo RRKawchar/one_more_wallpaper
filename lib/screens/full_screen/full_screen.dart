@@ -70,7 +70,11 @@ class _FullScreenState extends State<FullScreen> {
                   auth.currentUser == null
                       ? IconButton(
                           onPressed: () {
-                            nextPage(context:context,page: AuthPage(imageUrl: widget.imageUrl, imageId: widget.imageId) );
+                            nextPage(
+                                context: context,
+                                page: AuthPage(
+                                    imageUrl: widget.imageUrl,
+                                    imageId: widget.imageId));
                           },
                           icon: const Icon(
                             Icons.favorite,
@@ -130,53 +134,6 @@ class _FullScreenState extends State<FullScreen> {
                           },
                         ),
 
-                  // StreamBuilder<QuerySnapshot>(
-                  //   stream: FirebaseFirestore.instance
-                  //       .collection('FavoriteImages')
-                  //       .doc(auth.currentUser!.uid)
-                  //       .collection('favourite')
-                  //       .where('imageId', isEqualTo: widget.imageId)
-                  //       .snapshots(),
-                  //   builder: (context, snapshot) {
-                  //     if (snapshot.hasData && snapshot.data != null) {
-                  //       final data = snapshot.data!;
-                  //       return IconButton(
-                  //         icon: Icon(
-                  //           Icons.favorite,
-                  //           color: data.docs.isEmpty ? Colors.white : Colors.red,
-                  //           size: 35,
-                  //         ),
-                  //         onPressed: () {
-                  //           if (auth.currentUser == null) {
-                  //             nextPage(
-                  //               context: context,
-                  //               page: AuthPage(
-                  //                 imageUrl: widget.imageUrl,
-                  //                 imageId: widget.imageId,
-                  //               ),
-                  //             );
-                  //           } else {
-                  //             final wallpaperRef = FirebaseFirestore.instance
-                  //                 .collection('FavoriteImages')
-                  //                 .doc(auth.currentUser!.uid)
-                  //                 .collection('favourite');
-                  //
-                  //             wallpaperRef.get().then((snapshot) {
-                  //               if (snapshot.size >= 8) {
-                  //                 final oldestWallpaper = snapshot.docs[0];
-                  //                 oldestWallpaper.reference.delete();
-                  //               }
-                  //               addToFavourite(widget.imageUrl, widget.imageId);
-                  //             });
-                  //           }
-                  //         },
-                  //       );
-                  //     } else {
-                  //       return CircularProgressIndicator(); // Show a loading indicator or an alternative widget
-                  //     }
-                  //   },
-                  // ),
-
                   const SizedBox(height: 30),
                   const Icon(
                     Icons.share_rounded,
@@ -227,12 +184,25 @@ class _FullScreenState extends State<FullScreen> {
       children: [
         InkWell(
           onTap: () {
-            nextPage(
+            if (auth.currentUser != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
+
+                SnackBar(
+                  backgroundColor: Colors.white,
+                  content: CustomText(
+                    text: "Already Logged in",size: 25,fontWeight: FontWeight.bold,
+                  ),
+                ),
+              );
+            } else {
+              nextPage(
                 context: context,
                 page: AuthPage(
                   imageUrl: widget.imageUrl,
                   imageId: widget.imageId,
-                ));
+                ),
+              );
+            }
           },
           child: CircleAvatar(
             radius: 30,

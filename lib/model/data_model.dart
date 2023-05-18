@@ -26,5 +26,9 @@ const List<Map> topicsList=[
     "category":"Night",
     "image_url":"https://firebasestorage.googleapis.com/v0/b/my-wallpaper-7c9f3.appspot.com/o/Night%2FUruzTyr_a_shoggoth_in_a_trench_in_the_great_war_three_soldiers__d7f6e968-cf3f-400a-9f53-bbeb83391378.png?alt=media&token=2e018c07-0aa5-483a-8cab-94e25bccd3ed"
   },
-
+  {
+    "catName":"Sky",
+    "category":"Sky",
+    "image_url":"https://firebasestorage.googleapis.com/v0/b/my-wallpaper-7c9f3.appspot.com/o/Sky%2Fanime-sky-4k-0f.jpg?alt=media&token=89f151d5-8397-45cd-9f33-d363e270f433"
+  },
 ];
