@@ -1,16 +1,14 @@
-# one_more_wallpaper
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+# Zing-Walls wallpaper app
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+![Apple iPhone 11 Pro Max Presentation](https://github.com/RRKawchar/zing-walls/assets/97376140/272dc071-e35a-4519-bea9-84f67ed094ac)
+
+
+![Apple iPhone 11 Pro Max Presentation (2)](https://github.com/RRKawchar/zing-walls/assets/97376140/b6ff41c5-08a1-497f-b225-a275f1fe2627)
+
